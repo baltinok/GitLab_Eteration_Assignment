@@ -8,6 +8,7 @@ public class Account {
 
 private String name;
 private String number;
+private int balance;
     public Account(String name,String number) {
 this.name = name;
 this.number = number;
@@ -33,16 +34,21 @@ public String getAccountNumber() {
 
 
     public double getBalance() {
-        return 1;
+        return balance;
     }
 
 
     public void deposit(int number) {
 
+        balance += number;
     }
 
 
     public void withdraw(int number) {
+
+     balance -= number;
+
+
 
     }
 public List <Transaction>  getTransactions() {
@@ -58,6 +64,6 @@ public void post(DepositTransaction d) {
 
 
 public void post(WithdrawalTransaction w) {
-    
+
 }
 }
