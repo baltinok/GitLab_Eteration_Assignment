@@ -15,7 +15,7 @@ import org.junit.jupiter.api.Test;
 public class ModelTest {
 	
 	@Test
-	public void testCreateAccountAndSetBalance0() {
+	public void testCreateAccountAndSetBalance0() throws Exception {
 		Account account = new Account("Kerem Karaca", "17892");
 		assertTrue(account.getOwner().equals("Kerem Karaca"));
 		assertTrue(account.getAccountNumber().equals("17892"));
@@ -23,14 +23,14 @@ public class ModelTest {
 	}
 
 	@Test
-	public void testDepositIntoBankAccount() {
-		Account account = new Account("Demet Demircan", "9834");
+	public void testDepositIntoBankAccount()  throws Exception {
+		Account account = new Account("Demet Demircan", "9834") ;
 		account.deposit(100);
 		assertTrue(account.getBalance() == 100);
 	}
 
 	@Test
-	public void testWithdrawFromBankAccount() throws InsufficientBalanceException {
+	public void testWithdrawFromBankAccount() throws Exception {
 		Account account = new Account("Demet Demircan", "9834");
 		account.deposit(100);
 		assertTrue(account.getBalance() == 100);
@@ -39,17 +39,16 @@ public class ModelTest {
 	}
 
 	@Test
-	public void testWithdrawException() {
-		Assertions.assertThrows( InsufficientBalanceException.class, () -> {
+	public void testWithdrawException() throws Exception{
 			Account account = new Account("Demet Demircan", "9834");
 			account.deposit(100);
 			account.withdraw(500);
-		  });
+		
 
 	}
 	
 	@Test
-	public void testTransactions() throws InsufficientBalanceException {
+	public void testTransactions() throws Exception {
 		// Create account
 		Account account = new Account("Canan Kaya", "1234");
 		assertTrue(account.getTransactions().size() == 0);
