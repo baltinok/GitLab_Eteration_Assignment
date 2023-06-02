@@ -5,11 +5,10 @@ package com.eteration.simplebanking.controller;
 
 public class TransactionStatus {
 
+    private short status = 0;
 
 public short getStatus() {
-    return 0;
-
-
+    return status;
     
 
 }

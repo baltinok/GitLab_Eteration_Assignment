@@ -5,6 +5,8 @@ import java.util.List;
 
 import org.springframework.http.ResponseEntity;
 
+import com.eteration.simplebanking.services.AccountService;
+
 // This class is a place holder you can change the complete implementation
 
 public class Account  {
@@ -14,15 +16,21 @@ private String number;
 private int balance;
 private String owner;
 private List <Transaction> t = new ArrayList<>();
+private AccountService service;
+
     public Account(String name,String number) throws Exception  {
 this.name = name;
 this.number = number;
 this.balance = 0;
 
 
+
     }
 
+public String getNumber() {
 
+    return this.number;
+}
 
 public String getOwner() throws InsufficientBalanceException {
     return name;
@@ -52,6 +60,11 @@ public String getAccountNumber() throws InsufficientBalanceException {
 
     }
 
+
+
+
+
+    
 
     public void withdraw(int number) throws Exception {
 
